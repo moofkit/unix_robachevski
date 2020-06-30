@@ -5,14 +5,15 @@
 int main(int argc, char *argv[]) {
   char *term;
   char buf[200], var[200];
-  if ((term = getenv("TERM")) == NULL) {
+  term = getenv("TERM");
+  if (term == NULL) {
     printf("TERM variable not set, enter value: ");
     gets(buf);
     sprintf(var, "TERM=%s", buf);
     putenv(var);
     printf("%s\n", var);
   } else {
-    printf("TERM=%s. Change? [y/N]", getenv("TERM"));
+    printf("TERM=%s. Change? [y/N]", term);
     gets(buf);
     if (buf[0] == 'Y' || buf[0] == 'y') {
       printf("TERM=");
