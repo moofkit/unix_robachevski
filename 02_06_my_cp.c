@@ -12,7 +12,7 @@ int main(int argc, char *argv[]) {
   struct stat filestat;
 
   fd_src = open(argv[1], O_RDONLY);
-  fd_dst = open(argv[2], O_RDWR | O_CREAT);
+  fd_dst = open(argv[2], O_RDWR | O_CREAT, 0644);
 
   // get size of src file
   fstat(fd_src, &filestat);
